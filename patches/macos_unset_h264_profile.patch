@@ -1,0 +1,16 @@
+diff --git a/sdk/objc/components/video_codec/RTCVideoEncoderH264.mm b/sdk/objc/components/video_codec/RTCVideoEncoderH264.mm
+index 01d48c1749..9780869993 100644
+--- a/sdk/objc/components/video_codec/RTCVideoEncoderH264.mm
++++ b/sdk/objc/components/video_codec/RTCVideoEncoderH264.mm
+@@ -672,9 +672,11 @@ - (int)resetCompressionSessionWithPixelFormat:(OSType)framePixelFormat {
+ - (void)configureCompressionSession {
+   RTC_DCHECK(_compressionSession);
+   SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_RealTime, true);
++  #if !defined(WEBRTC_MAC)
+   SetVTSessionProperty(_compressionSession,
+                        kVTCompressionPropertyKey_ProfileLevel,
+                        ExtractProfile(*_profile_level_id));
++  #endif
+   SetVTSessionProperty(_compressionSession, kVTCompressionPropertyKey_AllowFrameReordering, false);
+   [self setEncoderBitrateBps:_targetBitrateBps frameRate:_encoderFrameRate];
+   // TODO(tkchin): Look at entropy mode and colorspace matrices.
