@@ -28,10 +28,10 @@ cp $BUILD_DIR/webrtc/release/libwebrtc.a $BUILD_DIR/package/webrtc/release/lib/
 # NOTICE
 cp $BUILD_DIR/webrtc/LICENSE.md "$BUILD_DIR/package/webrtc/NOTICE"
 # WebRTC.framework
-cp -r $BUILD_DIR/webrtc/debug/WebRTC.framework "$BUILD_DIR/package/webrtc/debug/WebRTC.framework"
-cp -r $BUILD_DIR/webrtc/release/WebRTC.framework "$BUILD_DIR/package/webrtc/release/WebRTC.framework"
+cp -R $BUILD_DIR/webrtc/debug/WebRTC.framework "$BUILD_DIR/package/webrtc/debug/WebRTC.framework"
+cp -R $BUILD_DIR/webrtc/release/WebRTC.framework "$BUILD_DIR/package/webrtc/release/WebRTC.framework"
 # WebRTC.dSYM ... debugのみ
-cp -r $BUILD_DIR/webrtc/debug/WebRTC.dSYM "$BUILD_DIR/package/webrtc/debug/WebRTC.dSYM"
+cp -R $BUILD_DIR/webrtc/debug/WebRTC.dSYM "$BUILD_DIR/package/webrtc/debug/WebRTC.dSYM"
 
 # 各種情報を拾ってくる
 cp $VERSION_FILE $BUILD_DIR/package/webrtc/VERSIONS
